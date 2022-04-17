@@ -1,0 +1,14 @@
+.Caurosel img {
+    height: 400px;
+}
+
+.Caurosel-color {
+    font-weight: 500;
+
+    font-size: large;
+}
+
+.color {
+    color: lightseagreen;
+    font-size: larger;
+}
