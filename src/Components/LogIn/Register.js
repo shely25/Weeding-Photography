@@ -28,11 +28,11 @@ const Register = () => {
             </Form>
             <p className='text-center my-2'>Already have an account?<Link to='/LogIn'><span className='text-decoration-none'>Please Log In</span></Link></p>
             <div className='d-flex justify-content-center align-items-center'>
-                <div style={{ border: '1px solid blue', width: '100px', borderRadius: '4px' }}></div>
+                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
                 <p style={{ margin: '1px 8px 0 8px' }}>Or</p>
-                <div style={{ border: '1px solid blue', width: '100px', borderRadius: '4px' }}></div>
+                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
             </div>
-            <div className='d-flex justify-content-center mt-5'>
+            <div className='d-flex justify-content-center mt-3'>
                 <Button className='text-dark shadow fs-5 p-2 bg-white border-0 w-25 d-flex justify-content-center align-items-center'>
                     <IoLogoGoogle />
                     <span className='mx-2'> Register With Google</span>

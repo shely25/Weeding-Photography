@@ -1,0 +1,12 @@
+.card img {
+    height: 300px;
+}
+
+.tittle {
+    color: orange;
+}
+
+.card {
+    padding: 5px;
+    border-radius: 5px;
+}

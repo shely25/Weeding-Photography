@@ -23,9 +23,9 @@ const LogIn = () => {
             </Form>
             <p className='text-center my-2'>Are you new here?<Link to='/Register'>Please Register</Link></p>
             <div className='d-flex justify-content-center align-items-center'>
-                <div style={{ border: '1px solid blue', width: '100px', borderRadius: '4px' }}></div>
+                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
                 <p style={{ margin: '1px 8px 0 8px' }}>Or</p>
-                <div style={{ border: '1px solid blue', width: '100px', borderRadius: '4px' }}></div>
+                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
             </div>
             <GoogleLoginButton className='w-25 mx-auto my-3' onClick={() => alert("Hello")} />
             <GithubLoginButton className='w-25 mx-auto' onClick={() => alert("Hello")} />
