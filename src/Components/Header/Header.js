@@ -1,8 +1,12 @@
+import { Button } from 'react-bootstrap';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <div className='sticky-top'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -14,9 +18,15 @@ const Header = () => {
                             <Nav.Link as={Link} to='/Home/#Services'>Services</Nav.Link>
                             <Nav.Link as={Link} to='/Blogs'>Blogs</Nav.Link>
                             <Nav.Link as={Link} to='/About'>About</Nav.Link>
+                            <Nav.Link as={Link} to='/CheckOut'>CheckOut</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link as={Link} to='/LogIn'>Log In</Nav.Link>
+                            {
+                                user ?
+                                    <button>Sign Out</button>
+                                    :
+                                    <Nav.Link as={Link} to='/LogIn'>Log In</Nav.Link>
+                            }
                             <Nav.Link as={Link} to='/Register'>
                                 Register
                             </Nav.Link>
