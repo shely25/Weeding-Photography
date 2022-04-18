@@ -4,18 +4,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from './SocialLogin';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 
 
 const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const [sendEmailVerification, sending, error2] = useSendEmailVerification(
+        auth
+    );
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     let errorElement1
     if (error) {
         errorElement1 = <div>
@@ -40,13 +44,13 @@ const Register = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control value={email} type="email" onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
+                    <Form.Control value={email} type="email" onChange={e => setEmail(e.target.value)} placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control value={password} type="password"
-                        onChange={e => setPassword(e.target.value)} placeholder="Password" />
+                        onChange={e => setPassword(e.target.value)} placeholder="Password" required />
                 </Form.Group>
                 <Button onClick={handleRegister} variant="primary" type="submit">
                     Register
