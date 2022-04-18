@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -7,6 +7,9 @@ import auth from '../../firebase.init';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const handleSignout = () => {
+        signOut(auth)
+    }
     return (
         <div className='sticky-top'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -23,7 +26,7 @@ const Header = () => {
                         <Nav>
                             {
                                 user ?
-                                    <button>Sign Out</button>
+                                    <button onClick={handleSignout}>Sign Out</button>
                                     :
                                     <Nav.Link as={Link} to='/LogIn'>Log In</Nav.Link>
                             }
