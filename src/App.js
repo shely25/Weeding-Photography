@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './Components/Header/Header';
-import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
@@ -9,6 +8,7 @@ import About from './Components/About/About';
 import Register from './Components/LogIn/Register';
 import Blogs from './Components/Blogs/Blogs';
 import NotFound from './Components/NotFound/NotFound';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path='/Blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
 
   );
