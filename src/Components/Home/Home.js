@@ -50,7 +50,7 @@ const Home = () => {
                 </Carousel>
             </div>
             <div>
-                <Services></Services>
+                <Services id='Services'></Services>
             </div>
         </div>
     );

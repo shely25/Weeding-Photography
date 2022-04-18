@@ -1,53 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { IoLogoGoogle, IoLogoGithub } from "react-icons/io";
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './SocialLogin';
+
 
 const Register = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    let errorElement1
+    if (error) {
+        errorElement1 = <div>
+            <p className='text-center text-danger'>Error: {error.message}</p>
+        </div>
+    }
+    if (user) {
+        navigate('/Home')
+    }
+    const handleRegister = event => {
+        event.preventDefault()
+        createUserWithEmailAndPassword(email, password)
+    }
     return (
         <div>
             <h1 className='text-center mt-5'>Register</h1>
             <Form className='w-25 mx-auto'>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="Your Name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control value={email} type="email" onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control value={password} type="password"
+                        onChange={e => setPassword(e.target.value)} placeholder="Password" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button onClick={handleRegister} variant="primary" type="submit">
                     Register
                 </Button>
             </Form>
+            {errorElement1}
             <p className='text-center my-2'>Already have an account?<Link to='/LogIn'><span className='text-decoration-none'>Please Log In</span></Link></p>
-            <div className='d-flex justify-content-center align-items-center'>
-                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
-                <p style={{ margin: '1px 8px 0 8px' }}>Or</p>
-                <div style={{ border: '1px solid blue', width: '150px', borderRadius: '4px' }}></div>
-            </div>
-            <div className='d-flex justify-content-center mt-3'>
-                <Button className='text-dark shadow fs-5 p-2 bg-white border-0 w-25 d-flex justify-content-center align-items-center'>
-                    <IoLogoGoogle />
-                    <span className='mx-2'> Register With Google</span>
-
-                </Button>
-            </div>
-            <div className='d-flex justify-content-center mt-3'>
-                <Button className='fs-5 p-2 bg-dark border-0 w-25 d-flex justify-content-center align-items-center'>
-                    <IoLogoGithub />
-                    <span className='mx-2'> Register With Github</span>
-
-                </Button>
-            </div>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
-
 export default Register;
