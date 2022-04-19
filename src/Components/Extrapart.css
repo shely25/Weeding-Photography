@@ -1,0 +1,19 @@
+.logo img {
+    height: 200px;
+    width: 300px;
+    margin-top: 0;
+}
+
+.logo p {
+    font-weight: 600;
+    font-size: 30px;
+    color: goldenrod;
+    margin-bottom: 0;
+    margin-top: 35px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}

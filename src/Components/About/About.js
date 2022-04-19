@@ -9,8 +9,7 @@ const About = () => {
             <div className='text'>
                 < img src={shely} alt="" />
                 <div>
-                    <h6>Shakila Khatun Shely</h6>
-                    <p>I am A wedding Photographer.From my Childhood my passion is photography.From this I am thinking about this work.</p>
+                    <p>I am Shakila Khatun Shely.I am a undergraduate student.I am studying B.Sc engineering at Khulna University of Enguineering And Technology.From my childhood it was my cherish desire to become an engineer.After completing my graduation my desire is to do work in a reputed multinational company.For this I am doing this course.Because of my study,it is very difficult to manage time for this course.Though i have not enough time,i tried my best to do hard work. </p>
                 </div>
             </div >
         </div >

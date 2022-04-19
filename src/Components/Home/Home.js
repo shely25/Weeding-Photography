@@ -5,10 +5,13 @@ import banner2 from '../../Images/banner5.webp'
 import banner3 from '../../Images/banner2.jpg'
 import './Home.css'
 import Services from '../Services/Services';
+import Extrapart from '../Extrapart';
+import Features from '../Features/Features';
 
 const Home = () => {
     return (
         <div>
+            <Extrapart></Extrapart>
             <div className='Caurosel'>
                 <Carousel>
                     <Carousel.Item>
@@ -51,6 +54,10 @@ const Home = () => {
             </div>
             <div>
                 <Services></Services>
+            </div>
+
+            <div>
+                <Features></Features>
             </div>
         </div>
     );
