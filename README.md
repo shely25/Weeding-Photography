@@ -12,4 +12,4 @@
 [https://github.com/programming-hero-web-course-4/independent-service-provider-shely25] 
 
 # LiveSite Link 
-[https://wedding-photography-2c5a0.web.app/]
+[https://wedding-photography-2c5a0.firebaseapp.com/]
