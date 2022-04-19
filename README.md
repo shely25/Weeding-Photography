@@ -13,3 +13,4 @@
 
 # LiveSite Link 
 [https://wedding-photography-2c5a0.firebaseapp.com/]
+[https://wedding-photography-2c5a0.web.app/]
